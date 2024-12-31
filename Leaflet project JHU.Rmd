@@ -1,0 +1,50 @@
+---
+title: "Interactive Map with Leaflet"
+author: "MAK"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(leaflet)
+```
+
+## Welcome to My Interactive Map!
+
+This webpage was created to showcase the powerful mapping capabilities of R using the **Leaflet** package. Below, you will find an interactive map featuring custom markers and layers.
+
+### About This Page
+
+-   **Author**: MAK
+-   **Creation Date**: `r Sys.Date()`
+
+### Interactive Map
+
+Explore the map below to see interactive features like zoom, pan, and custom markers.
+
+```{r leaflet-map, message=FALSE, warning=FALSE}
+# Create a leaflet map with custom markers
+leaflet() %>%
+  addTiles() %>%
+  setView(lng = -122.4194, lat = 37.7749, zoom = 12) %>% # Centered on San Francisco
+  addMarkers(lng = -122.4194, lat = 37.7749, popup = "Welcome to San Francisco!") %>%
+  addMarkers(lng = -122.3984, lat = 37.7949, popup = "Ferry Building Marketplace") %>%
+  addCircleMarkers(
+    lng = -122.414, lat = 37.776,
+    color = "red", radius = 10,
+    popup = "A Highlighted Point"
+  )
+```
+
+### Features of the Map
+
+1.  **Interactive Controls**: Zoom and pan functionality.
+2.  **Custom Markers**: Added markers with popups to display information.
+3.  **Customization**: Highlighted points with circle markers and custom colors.
+
+### Conclusion
+
+This interactive map demonstrates how R Markdown and Leaflet can create visually engaging and functional web pages. Thank you for visiting!
+
+------------------------------------------------------------------------
